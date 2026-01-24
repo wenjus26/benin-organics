@@ -182,13 +182,30 @@ function initGoogleTranslate() {
             document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + document.domain;
             location.reload();
         } else {
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
-                select.dispatchEvent(new Event('change'));
-            } else {
-                console.warn('Google Translate element not found');
-            }
+            // Wait for Google Translate to be ready
+            let attempts = 0;
+            const maxAttempts = 20; // Try for 2 seconds (20 * 100ms)
+            
+            const tryTranslate = () => {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                    console.log('Language changed to:', lang);
+                } else {
+                    attempts++;
+                    if (attempts < maxAttempts) {
+                        setTimeout(tryTranslate, 100); // Retry after 100ms
+                    } else {
+                        console.error('Google Translate widget not loaded after', maxAttempts * 100, 'ms');
+                        // Force reload with language cookie
+                        document.cookie = "googtrans=/fr/" + lang + "; path=/";
+                        location.reload();
+                    }
+                }
+            };
+            
+            tryTranslate();
         }
     }
 }
