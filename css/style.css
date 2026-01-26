@@ -52,30 +52,28 @@
 }
 
 html {
+    padding-top: 0 !important;
     scroll-behavior: smooth;
 }
-
 body {
+    top: 0 !important;
+    position: static !important; /* Force le body à ignorer le décalage du script */
     font-family: var(--font-primary);
     color: var(--color-text-main);
-    background-color: var(--color-white);
     background-color: var(--color-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-
-        body {
-            top: 0 !important;
-        }
-
-        .goog-te-banner-frame.skiptranslate,
-        .skiptranslate {
-            display: none !important;
-            height: 0 !important;
-            width: 0 !important;
-            visibility: hidden !important;
-        }
+/* Cacher la barre de traduction Google */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget, 
+.skiptranslate {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    visibility: hidden !important;
+}
 
 
 
