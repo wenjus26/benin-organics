@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/translate_base.css">
     <script type="text/javascript">
         function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'fr', includedLanguages: 'en,fr,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element'); }
     </script>
@@ -67,11 +68,12 @@
             </nav>
             <div class="header-actions">
                 <div class="lang-switcher">
-                    <button class="lang-btn notranslate active" onclick="triggerGoogleTranslate('fr')">FR</button> |
-                    <button class="lang-btn notranslate" onclick="triggerGoogleTranslate('en')">EN</button> | <button
-                        class="lang-btn notranslate" onclick="triggerGoogleTranslate('hi')">HI</button>
+                    <button class="lang-btn notranslate active" data-lang="fr" onclick="translatePage('fr')">FR</button> |
+                    <button class="lang-btn notranslate" data-lang="en" onclick="translatePage('en')">EN</button> | <button
+                        class="lang-btn notranslate" data-lang="hi" onclick="translatePage('hi')">HI</button>
                 </div>
                 <div id="google_translate_element" style="display:none"></div>
+                <div id="googleOverlay" class="google-translate-overlay"></div>
                 <div class="burger-menu">
                     <div class="line1"></div>
                     <div class="line2"></div>
@@ -178,6 +180,14 @@
             <p>&copy; 2026 Benin Organics SA. All Rights Reserved. | <a href="#">Politique de Confidentialité</a></p>
         </div>
     </footer>
+    <!-- Google Translate Script (doit être AVANT translate_base.js) -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'fr', includedLanguages: 'en,fr,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script src="../js/translate_base.js"></script>
     <script src="../js/main.js"></script>
 </body>
 

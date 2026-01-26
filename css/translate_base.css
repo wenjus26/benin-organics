@@ -1,0 +1,84 @@
+ 
+/* ===== STYLES POUR CACHER TOUT DE GOOGLE TRANSLATE ===== */
+/* IMPORTANT: Masquer ABSOLUMENT TOUT de Google Translate */
+body > .skiptranslate {
+    display: none !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+
+.goog-te-banner {
+    display: none !important;
+}
+
+/* Cacher le préchargement/loading de Google */
+.goog-te-spinner-pos {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.goog-te-spinner {
+    display: none !important;
+}
+
+.goog-te-spinner-image {
+    display: none !important;
+}
+
+/* Cacher la barre de progression */
+.goog-te-progress {
+    display: none !important;
+}
+
+.goog-te-progress-bar {
+    display: none !important;
+}
+
+/* Cacher le modal de chargement */
+.goog-te-ftab {
+    display: none !important;
+}
+
+/* Cacher les iframes de Google */
+iframe.goog-te-banner-frame,
+iframe.goog-te-menu-frame,
+iframe.goog-te-ftab-frame {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    border: none !important;
+}
+
+/* Empêcher le body d'être décalé */
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+/* Style pour le sélecteur Google caché */
+.goog-te-combo {
+    display: none !important;
+}
+
+
+/* Overlay pour bloquer les éléments Google */
+.google-translate-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 999999;
+    pointer-events: none;
+    display: none;
+}
+
