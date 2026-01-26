@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Translate - Cacher Préchargement</title>
+    
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="css/translate_base.css">
+</head>
+
+<body>
+
+    <!-- Overlay pour bloquer les éléments Google -->
+    <div class="google-translate-overlay" id="googleOverlay"></div>
+
+    <!-- ===== WIDGET GOOGLE TRANSLATE ===== -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- Bouton mode sombre -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Mode Sombre</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>🌐 Google Translate Test</h1>
+            <p>Solution complète sans préchargement visible</p>
+            <div class="status" id="currentLang">Langue: Français</div>
+        </div>
+        
+        <div class="language-selector">
+            <h2>Choisissez votre langue :</h2>
+            <div class="lang-buttons">
+                <button class="lang-btn notranslate" onclick="translatePage('fr')" data-lang="fr">
+                    🇫🇷 Français
+                </button>
+                <button class="lang-btn notranslate" onclick="translatePage('en')" data-lang="en">
+                    🇬🇧 English
+                </button>
+                <button class="lang-btn notranslate" onclick="translatePage('es')" data-lang="es">
+                    🇪🇸 Español
+                </button>
+                <button class="lang-btn notranslate" onclick="translatePage('de')" data-lang="de">
+                    🇩🇪 Deutsch
+                </button>
+                <button class="lang-btn notranslate" onclick="translatePage('hi')" data-lang="hi">
+                    🇮🇳 हिन्दी
+                </button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h3>🚀 Cacher le Préchargement Google</h3>
+                <p>Cette démo montre comment cacher COMPLÈTEMENT l'interface de Google Translate, y compris :</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>✅ La bannière de préchargement (spinner)</li>
+                    <li>✅ La barre de progression</li>
+                    <li>✅ Les iframes de chargement</li>
+                    <li>✅ Les modals de traduction</li>
+                    <li>✅ Tous les éléments visuels de Google</li>
+                </ul>
+                <p>La traduction se fait en arrière-plan sans aucune interface visible !</p>
+            </div>
+            
+            <div class="section">
+                <h3>📖 Contenu à Traduire</h3>
+                <p>L'intelligence artificielle transforme notre façon de travailler. Des algorithmes de machine learning aux réseaux neuronaux profonds, l'IA permet d'automatiser des tâches complexes et d'améliorer la prise de décision.</p>
+                <p>Les systèmes ERP modernes intègrent désormais des modules d'IA pour optimiser les processus métier, prédire les tendances du marché et personnaliser l'expérience client.</p>
+                <p>La traduction automatique neuronale, comme celle utilisée par Google Translate, représente l'une des applications les plus avancées de l'IA, permettant des traductions fluides et contextuelles en temps réel.</p>
+            </div>
+            
+            <div class="section">
+                <h3>⚙️ Détails Techniques</h3>
+                <p><strong>Stratégie utilisée :</strong></p>
+                <ol style="margin: 15px 0; padding-left: 20px;">
+                    <li>CSS pour cacher tous les éléments Google avec !important</li>
+                    <li>JavaScript pour surveiller et supprimer les éléments intrusifs</li>
+                    <li>MutationObserver pour détecter les ajouts DOM de Google</li>
+                    <li>Overlay transparent pour bloquer l'affichage</li>
+                </ol>
+                <p id="debugInfo">État: Surveillance active des éléments Google...</p>
+                <button onclick="showHiddenElements()" class="debug-btn">
+                    🔍 Voir les éléments cachés
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Test Google Translate - Préchargement caché</p>
+            <p>Les traductions sont fournies par Google Translate API</p>
+            <p id="translationStatus">Prêt à traduire</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Initialisation de Google Translate avec callback personnalisé
+        function googleTranslateElementInit() {
+            // Activer l'overlay pendant l'initialisation
+            document.getElementById('googleOverlay').style.display = 'block';
+            
+            // Initialiser Google Translate
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'fr,en,es,de,hi,it,pt,ru,ja,zh-CN',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, 'google_translate_element');
+            
+            console.log('Google Translate initialisé');
+            
+            // Nettoyer immédiatement tous les éléments visuels
+            cleanGoogleElements();
+            
+            // Désactiver l'overlay après un délai
+            setTimeout(() => {
+                document.getElementById('googleOverlay').style.display = 'none';
+            }, 500);
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Lien vers le fichier JavaScript externe -->
+    <script src="js/translate_base.js"></script>
+</body>
+</html>

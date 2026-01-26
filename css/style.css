@@ -64,6 +64,21 @@ body {
     overflow-x: hidden;
 }
 
+
+        body {
+            top: 0 !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate,
+        .skiptranslate {
+            display: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            visibility: hidden !important;
+        }
+
+
+
 /* Premium Responsive Typography */
 h1 {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -370,6 +385,16 @@ img {
     color: var(--color-text-light);
     border-radius: 17px;
     transition: all 0.3s ease;
+}
+
+/* Forcer les boutons à ne JAMAIS être traduits */
+.lang-btn.notranslate {
+    text-decoration: none !important;
+}
+
+.lang-btn.notranslate::before,
+.lang-btn.notranslate::after {
+    content: none !important;
 }
 
 .lang-btn:hover {

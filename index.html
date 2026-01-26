@@ -50,9 +50,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/translate_base.css">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -122,15 +120,13 @@
 
             <div class="header-actions">
                 <div class="lang-switcher">
-                    <button class="lang-btn notranslate active" data-lang="fr" onclick="translatePage('fr')">FR</button>
+                    <button class="lang-btn notranslate" data-lang="fr" onclick="googleTranslate('fr')">FR</button>
                     <span class="divider">|</span>
-                    <button class="lang-btn notranslate" data-lang="en" onclick="translatePage('en')">EN</button>
+                    <button class="lang-btn notranslate" data-lang="en" onclick="googleTranslate('en')">EN</button>
                     <span class="divider">|</span>
-                    <button class="lang-btn notranslate" data-lang="hi" onclick="translatePage('hi')">HI</button>
+                    <button class="lang-btn notranslate" data-lang="hi" onclick="googleTranslate('hi')">HI</button>
                 </div>
-                <!-- Hidden Google Translate Element -->
                 <div id="google_translate_element" style="display:none"></div>
-                <div id="googleOverlay" class="google-translate-overlay"></div>
 
                 <div class="burger-menu">
                     <div class="line1"></div>
@@ -323,16 +319,10 @@
         </div>
     </footer>
 
-    <!-- Google Translate Script (doit être AVANT translate_base.js) -->
+    <!-- Google Translate -->
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'fr', includedLanguages: 'en,fr,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-        }
-    </script>
+    <script src="js/translate.js"></script>
     
-    <!-- Scripts personnalisés -->
-    <script src="js/translate_base.js"></script>
     <script src="js/main.js"></script>
 </body>
 
