@@ -55,9 +55,10 @@ html {
     padding-top: 0 !important;
     scroll-behavior: smooth;
 }
+
 body {
     top: 0 !important;
-    position: static !important; /* Force le body à ignorer le décalage du script */
+    position: static !important;
     font-family: var(--font-primary);
     color: var(--color-text-main);
     background-color: var(--color-white);
@@ -65,14 +66,45 @@ body {
     overflow-x: hidden;
 }
 
-/* Cacher la barre de traduction Google */
+/* ===== STYLES POUR GOOGLE TRANSLATE ===== */
+/* Masquer complètement la barre supérieure de Google Translate */
+body {
+    top: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Masquer tous les éléments de la bannière Google Translate */
 .goog-te-banner-frame.skiptranslate,
-.goog-te-gadget, 
-.skiptranslate {
+.goog-te-banner-frame,
+.skiptranslate,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
+.goog-te-combo,
+.goog-te-button {
     display: none !important;
     height: 0 !important;
     width: 0 !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
     visibility: hidden !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    overflow: hidden !important;
+}
+
+/* Masquer le conteneur principal de Google Translate */
+.VIpgJd-ZVi9od-ORHavf,
+.goog-te-combo {
+    display: none !important;
+}
+
+/* Forcer le body à avoir 0 margin et padding en haut */
+html, body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 
